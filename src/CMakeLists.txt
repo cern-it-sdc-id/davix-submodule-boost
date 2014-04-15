@@ -15,6 +15,7 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../ ")
 add_definitions( -DBOOST_THREAD_BUILD_LIB=1)
 add_definitions( -DBOOST_THREAD_POSIX )
 add_definitions( -fPIC )
+add_definitions(-fvisibility=hidden)
 add_library(boost_static_internal STATIC ${SRC_BOOST_ALL})
 
 endif(NOT Boost_FOUND)
