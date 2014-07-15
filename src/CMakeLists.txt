@@ -18,4 +18,9 @@ add_definitions( -fPIC )
 add_definitions(-fvisibility=hidden)
 add_library(boost_static_internal STATIC ${SRC_BOOST_ALL})
 
+# if the static library is produced, then we need also to install the dependent libraries to be useful
+if(STATIC_LIBRARY)
+  install(TARGETS boost_static_internal DESTINATION ${LIB_INSTALL_DIR} )
+endif()
+
 endif(NOT Boost_FOUND)
